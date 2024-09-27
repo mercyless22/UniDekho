@@ -1,0 +1,42 @@
+/* General container styling */
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the dropdowns */
+    gap: 10px; /* Add space between the dropdowns */
+    margin-top: 20px;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    width: 200px; /* Set all dropdowns to the same width */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px; /* Ensure consistent height */
+    box-sizing: border-box; /* Ensures padding is included in width/height */
+    background-color: #fff;
+}
+
+
+
+/* Button styling */
+.search-btn {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-btn i {
+    margin-right: 5px;
+}
+
+/* On hover */
+.search-btn:hover {
+    background-color: #0056b3;
+}
