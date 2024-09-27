@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Profile</title>
+    <link rel="stylesheet" href="../CSS/unidetails.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/search.css">
+    <link rel="stylesheet" href="../CSS/Index.css">
+
+    <!-- jQuery for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="../JS/search.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+  <script>
+  // Load the navbar
+  fetch('../Layouts/Navbar.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+  // Load the footer
+  fetch('../Layouts/footer.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('Footer-placeholder').innerHTML = data;
+      });
+  </script>
+  <div>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <a href="./index.html">Home</a> > <a href="#">MIT</a>
+    </div>
+
+    <!-- University Info Section -->
+    <section class="university-info">
+        <div class="university-banner">
+            <img src="../Images/mit.jpg" alt="University Banner">
+            <div class="university-details">
+                <img src="../Images/mit.jpg" alt="University Logo">
+                <h1>MIT</h1>
+                <p><strong>Cambridge,LA</strong></p>
+                <button class="cta-details-btn">Get more details</button>
+                <button class="cta-shortlist-btn">Shortlist</button>
+                <button class="cta-compare-btn">Compare</button>
+            </div>
+        </div>
+
+        <div class="ranking-info">
+            <div class="ranking">
+                <span>#133</span>
+                <p>UniDekho University Rankings</p>
+            </div>
+            <div class="programs">
+                <span>103</span>
+                <p>Undergraduate Programs</p>
+            </div>
+            <div class="programs">
+                <span>157</span>
+                <p>Postgraduate Programs</p>
+            </div>
+            <div class="students">
+                <span>6906</span>
+                <p>International Students</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- University Description Section -->
+    <section class="university-description">
+        <h2>MIT</h2>
+        <p>Founded in 1088, the University of Bologna is one of the oldest universities in the world, known for its academic excellence. It offers a variety of programs across multiple disciplines, including humanities, sciences, engineering, and more. With a vibrant international student community and a rich historical background, Unibo continues to be a leading institution for higher education in Europe.</p>
+    </section>
+
+    <!-- Ratings and Reviews Section -->
+    <section class="ratings-reviews">
+        <h2>University Ratings & Reviews</h2>
+        <div class="ratings">
+            <p>Overall Rating: <strong>4.5/5</strong></p>
+            <div class="stars">
+                <span>★★★★☆</span> 4.5 (200 reviews)
+            </div>
+            <button class="cta-review-btn">Write a Review</button>
+        </div>
+        <div class="reviews">
+            <h3>What Students Say:</h3>
+            <ul>
+                <li><strong>Jane Doe</strong>: "Great campus and amazing faculty. Loved my experience at Unibo!"</li>
+                <li><strong>John Smith</strong>: "The courses are well structured, but some departments need more attention."</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-offered">
+        <h2>Programs Offered</h2>
+        <ul>
+            <li><strong>Undergraduate Programs:</strong> Computer Science, Economics, Literature, Law...</li>
+            <li><strong>Postgraduate Programs:</strong> Data Science, Mechanical Engineering, International Relations...</li>
+        </ul>
+    </section>
+
+    <!-- Tuition Fees and Scholarships Section -->
+    <section class="fees-scholarships">
+        <h2>Tuition Fees & Scholarships</h2>
+        <p><strong>Tuition Fees:</strong> €1,500 - €3,000 per year for EU students; €2,500 - €5,000 per year for non-EU students.</p>
+        <p><strong>Scholarships:</strong> The university offers multiple scholarships for international students, including merit-based and need-based awards. Visit the scholarships page for more details.</p>
+    </section>
+
+    <!-- Campus Gallery Section -->
+    <section class="campus-gallery">
+        <h2>Campus Gallery</h2>
+        <div class="gallery">
+            <img src="campus1.jpg" alt="Campus Image 1">
+            <img src="campus2.jpg" alt="Campus Image 2">
+            <img src="campus3.jpg" alt="Campus Image 3">
+        </div>
+    </section>
+
+    <!-- Alumni Success Stories Section -->
+    <section class="alumni-success">
+        <h2>Alumni Success Stories</h2>
+        <p>Alma Mater Studiorum has produced several notable alumni, including world-renowned scientists, politicians, and business leaders. One of the most notable alumni is Guglielmo Marconi, who won the Nobel Prize in Physics for his work on wireless telegraphy.</p>
+    </section>
+
+    <!-- Location Section with Map -->
+    <section class="university-location">
+        <h2>Location</h2>
+        
+        <p><strong>Address:</strong> Via Zamboni, 33, 40126 Bologna BO, Italy</p>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Phone:</strong> +39 051 2099399</p>
+        <p><strong>Email:</strong> admissions@unibo.it</p>
+        <button class="cta-contact-btn">Contact Us</button>
+    </section>
+
+    <!-- Footer Section -->
+    <div id="Footer-placeholder"></div>
+</div>
+</body>
+</html>

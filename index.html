@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniDekho - Explore Top Universities</title> <!-- Descriptive Title -->
+
+    <meta name="description" content="Discover the best universities with UniDekho. Explore comprehensive information on higher education institutions and make informed choices."> <!-- Meta Description -->
+    <meta name="keywords" content="universities, higher education, university listings, education, UniDekho"> <!-- Keywords -->
+    <link rel="canonical" href="https://yourwebsite.com/index.html"> <!-- Canonical Link -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="UniDekho - Explore Top Universities">
+    <meta property="og:description" content="Discover the best universities with UniDekho. Explore comprehensive information on higher education institutions and make informed choices.">
+    <meta property="og:image" content="https://yourwebsite.com/path-to-image.jpg"> <!-- Replace with your image URL -->
+    <meta property="og:url" content="https://yourwebsite.com/index.html">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/search.css">
+    <link rel="stylesheet" href="../CSS/Index.css">
+
+    <!-- jQuery for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="../JS/search.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../JS/aniscript.js"></script>
+    <script src="../JS/unilogocar.js"></script>
+</head>
+<body>
+
+    <!-- Scoped Bootstrap Section -->
+    <div id="bootstrap-section">
+        <div id="navbar-placeholder"></div>
+
+        <script>
+            // Function to load external HTML components
+            function loadComponent(url, targetElementId, callback) {
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Error loading ${url}: ${response.statusText}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(targetElementId).innerHTML = data;
+                        if (callback) callback(); // Call the callback after loading the component
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        document.getElementById(targetElementId).innerHTML = `<p>Unable to load content. Please try again later.</p>`;
+                    });
+            }
+
+            // Load the navbar and search HTML
+            loadComponent('../Layouts/Navbar.html', 'navbar-placeholder', function() {
+                // Callback to ensure additional scripts/functions can be called after loading the navbar
+                // e.g., initialize any scripts related to the navbar here if needed
+            });
+            loadComponent('../Layouts/search.html', 'search-placeholder');
+
+        </script>
+
+        <!-- Image Container for Search -->
+        <div class="image-container">
+            <div id="search-placeholder">
+                <!-- Search will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scoped Tailwind Section for AniCard -->
+    <div id="tailwind-section">
+        <div id="ani-card"></div>
+
+        <script>
+            // Load the AniCard (Tailwind + GSAP)
+            loadComponent('../Layouts/AniCards.html', 'ani-card', function() {
+                // Callback after AniCard is loaded
+            });
+
+            // Load the unilogocar component
+            loadComponent('../Layouts/unilogocar.html', 'unilogocar', function() {
+                // Callback after unilogocar is loaded to ensure the functionality works
+                initunilogoFunctionality(); // Call a function that initializes any functionality needed
+            });
+
+            // Load the footer
+            loadComponent('../Layouts/footer.html', 'foter');
+        </script>
+        
+        <div id="unilogocar"></div>
+        <div id="foter"></div>
+    </div>
+</body>
+</html>
