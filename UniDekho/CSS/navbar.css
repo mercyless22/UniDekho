@@ -1,0 +1,48 @@
+/* style.css */
+
+/* General Navbar Styles */
+.navbar {
+    background-color: black !important; /* Black background */
+}
+
+/* Navbar Brand Logo */
+
+
+
+/* Navbar Links */
+.navbar .nav-link {
+    color: white !important; /* White text color */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Change the color on hover */
+.navbar .nav-link:hover {
+    color: #ffcc00 !important;
+    border-bottom:1px solid yellow ;
+    
+}
+
+/* Align the logo to the left */
+.navbar-brand {
+    margin-right: auto !important; /* Push other items to center */
+}
+
+/* Centering the Navbar Links */
+.navbar-collapse {
+    flex-grow: 1; /* Allow navbar to grow */
+    justify-content: flex-start; /* Align items to the left */
+}
+
+/* Additional Styling for Navbar Items */
+.navbar-nav {
+    margin: 0; /* Remove default margin */
+}
+
+.navbar-nav .nav-item {
+    padding: 0 75px; /* Add more padding around nav items for increased space */
+}
+
+/* Ensure the navbar collapses properly */
+.navbar-collapse {
+    flex-basis: auto; /* Ensure the collapse works effectively */
+}

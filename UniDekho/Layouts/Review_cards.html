@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Search Reviews</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .review-card {
+            background-color: #f5a623;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .review-author {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .review-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            color: #f5a623;
+        }
+
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center">Student Reviews</h2>
+    <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+
+            <!-- First Review -->
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <div class="review-card text-center">
+                        <p class="review-text">"This platform made my college search journey so much easier. The rankings and detailed info helped me make a well-informed decision!"</p>
+                        <img src="https://via.placeholder.com/50" alt="User 1" class="review-image">
+                        <p class="review-author">John Doe</p>
+                        <p>BSc in Computer Science, Stanford University</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Review -->
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="review-card text-center">
+                        <p class="review-text">"I was able to compare various colleges and find the best fit for my career goals. The process was seamless!"</p>
+                        <img src="https://via.placeholder.com/50" alt="User 2" class="review-image">
+                        <p class="review-author">Jane Smith</p>
+                        <p>BSc in Mechanical Engineering, MIT</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Review -->
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="review-card text-center">
+                        <p class="review-text">"The resources provided were fantastic, from application guides to college rankings, it made everything easier!"</p>
+                        <img src="https://via.placeholder.com/50" alt="User 3" class="review-image">
+                        <p class="review-author">Alice Brown</p>
+                        <p>MS in Business Administration, Harvard University</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#reviewCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#reviewCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
