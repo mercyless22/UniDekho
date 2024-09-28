@@ -39,5 +39,5 @@
 
 /* On hover */
 .search-btn:hover {
-    background-color: #f0ad4e;
+    background-color: #f0ad4e important;
 }
