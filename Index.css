@@ -7,7 +7,7 @@ html, body {
 /* Style for the image container */
 .image-container {
     position: relative;  /* Relative positioning to allow absolute positioning for child elements */
-    background-image: url('1stindexpage.png');  /* Set the image as background */
+    background-image: url('1stindexpage.webp');  /* Set the image as background */
     background-size: cover; /* Cover ensures the image covers the full div */
     background-position: center; /* Center the image */
     height: 450px; /* Define the height of the div */
