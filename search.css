@@ -33,17 +33,13 @@
     
 }
 
+.search-btn i {
+    margin-right: 5px;
+}
+
+/* On hover */
+.search-btn:hover {
+    background-color: #f0ad4e;
+}
 
 
-/*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
-.btn-primary {
-      margin-right: 5px;
-    color: #fff;
-    background-color: #0495c9;
-    border-color: #357ebd; /*set the color you want here*/
-}
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: #fff;
-    background-color: #dbb300;
-    border-color: ##dbb300; /*set the color you want here*/
-}
