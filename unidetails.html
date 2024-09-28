@@ -10,134 +10,193 @@
     <link rel="stylesheet" href="search.css">
     <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="unidetails.css">
-    <!-- Tailwind CSS CDN -->
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- GSAP and ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Custom Styles */
+        .university-banner {
+            position: relative;
+            text-align: center;
+            color: white;
+            background: url('mit.jpg') no-repeat center center/cover;
+            height: 400px;
+        }
+        .university-details {
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+        }
+        .programs, .ranking, .students {
+            text-align: center;
+        }
+        .gallery img {
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
-  <!-- Navbar -->
   <div id="navbar-placeholder"></div>
   <script>
-    fetch('Navbar.html')
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById('navbar-placeholder').innerHTML = data;
-      });
+      // Load the navbar
+      fetch('Navbar.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('navbar-placeholder').innerHTML = data;
+          });
+      // Load the footer
+      fetch('footer.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('Footer-placeholder').innerHTML = data;
+          });
   </script>
 
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb text-sm py-2 bg-blue-50">
-    <a href="index.html" class="text-blue-500">Home</a> > <span class="text-gray-600">MIT</span>
+  <!-- Breadcrumb -->
+  <div class="bg-gray-200 py-4">
+      <div class="container mx-auto">
+          <nav>
+              <a href="index.html" class="text-blue-600 hover:underline">Home</a> > <span>MIT</span>
+          </nav>
+      </div>
   </div>
 
   <!-- University Info Section -->
-  <section class="university-info my-8">
-    <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center">
-      <div class="university-banner w-full lg:w-1/2 mb-6 lg:mb-0">
-        <img src="mit.jpg" class="w-full rounded-lg shadow-lg" alt="University Banner">
+  <section class="university-info container mx-auto my-10 p-8 bg-white shadow-lg rounded-lg">
+      <div class="university-banner flex items-center justify-center">
+          <div class="university-details text-left text-white p-6">
+              <img src="mit_logo.png" alt="University Logo" class="mb-4 w-24 h-24 object-cover">
+              <h1 class="text-3xl font-bold mb-2">MIT</h1>
+              <p><strong>Cambridge, LA</strong></p>
+              <div class="mt-4 space-x-2">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get more details</button>
+                  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Shortlist</button>
+                  <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Compare</button>
+              </div>
+          </div>
       </div>
-      <div class="university-details w-full lg:w-1/2 lg:pl-8">
-        <img src="mit.jpg" class="w-24 h-24 rounded-full mb-4" alt="University Logo">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">MIT</h1>
-        <p class="text-gray-500 mb-4"><strong>Cambridge, LA</strong></p>
-        <div class="flex space-x-4">
-          <button class="cta-details-btn bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">Get more details</button>
-          <button class="cta-shortlist-btn bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-lg">Shortlist</button>
-          <button class="cta-compare-btn bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg">Compare</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Ranking Info Section -->
-  <section class="ranking-info my-8">
-    <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="ranking bg-white shadow-lg p-6 text-center rounded-lg">
-        <span class="text-4xl font-bold text-blue-500">#133</span>
-        <p class="text-gray-500">UniDekho University Rankings</p>
+      <div class="ranking-info mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="ranking p-4 bg-gray-200 rounded-lg shadow">
+              <span class="text-2xl font-bold">#133</span>
+              <p>UniDekho University Rankings</p>
+          </div>
+          <div class="programs p-4 bg-gray-200 rounded-lg shadow">
+              <span class="text-2xl font-bold">103</span>
+              <p>Undergraduate Programs</p>
+          </div>
+          <div class="students p-4 bg-gray-200 rounded-lg shadow">
+              <span class="text-2xl font-bold">6906</span>
+              <p>International Students</p>
+          </div>
       </div>
-      <div class="programs bg-white shadow-lg p-6 text-center rounded-lg">
-        <span class="text-4xl font-bold text-blue-500">103</span>
-        <p class="text-gray-500">Undergraduate Programs</p>
-      </div>
-      <div class="programs bg-white shadow-lg p-6 text-center rounded-lg">
-        <span class="text-4xl font-bold text-blue-500">157</span>
-        <p class="text-gray-500">Postgraduate Programs</p>
-      </div>
-      <div class="students bg-white shadow-lg p-6 text-center rounded-lg">
-        <span class="text-4xl font-bold text-blue-500">6906</span>
-        <p class="text-gray-500">International Students</p>
-      </div>
-    </div>
   </section>
 
   <!-- University Description Section -->
-  <section class="university-description py-8 bg-white shadow-md">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">MIT</h2>
-      <p class="text-gray-600">Founded in 1088, the University of Bologna is one of the oldest universities in the world, known for its academic excellence. It offers a variety of programs across multiple disciplines, including humanities, sciences, engineering, and more...</p>
-    </div>
+  <section class="university-description container mx-auto mb-10">
+      <h2 class="text-3xl font-semibold mb-6">About MIT</h2>
+      <p class="text-lg">MIT, founded in 1861, is a world-leading institution in education, research, and innovation. With diverse programs in technology, engineering, and sciences, MIT has established itself as a leader in global higher education.</p>
   </section>
 
-  <!-- Ratings and Reviews Section -->
-  <section class="ratings-reviews py-8">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">University Ratings & Reviews</h2>
-      <div class="ratings flex items-center mb-4">
-        <p class="text-xl text-gray-700 mr-4">Overall Rating: <strong>4.5/5</strong></p>
-        <div class="stars text-yellow-500 text-xl">★★★★☆</div>
-        <button class="cta-review-btn bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 ml-auto rounded-lg">Write a Review</button>
+  <!-- Programs Offered Section -->
+  <section class="programs-offered container mx-auto mb-10">
+      <h2 class="text-3xl font-semibold mb-6">Programs Offered</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+              <h3 class="text-2xl font-semibold">Undergraduate Programs</h3>
+              <ul>
+                  <li>Computer Science</li>
+                  <li>Economics</li>
+                  <li>Mechanical Engineering</li>
+                  <li>Biology</li>
+              </ul>
+          </div>
+          <div>
+              <h3 class="text-2xl font-semibold">Postgraduate Programs</h3>
+              <ul>
+                  <li>Artificial Intelligence</li>
+                  <li>Data Science</li>
+                  <li>Robotics</li>
+                  <li>Management</li>
+              </ul>
+          </div>
       </div>
-      <div class="reviews">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">What Students Say:</h3>
-        <ul class="list-disc list-inside text-gray-600">
-          <li><strong>Jane Doe</strong>: "Great campus and amazing faculty. Loved my experience at Unibo!"</li>
-          <li><strong>John Smith</strong>: "The courses are well structured, but some departments need more attention."</li>
-        </ul>
-      </div>
-    </div>
   </section>
 
-  <!-- Add GSAP animations -->
-  <script>
-    // Fade in animation for sections
-    gsap.utils.toArray('section').forEach(section => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        duration: 1,
-        ease: "power2.out"
-      });
-    });
+  <!-- Campus Gallery Section -->
+  <section class="campus-gallery container mx-auto mb-10">
+      <h2 class="text-3xl font-semibold mb-6">Campus Gallery</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <img src="campus1.jpg" alt="Campus Image 1" class="rounded-lg shadow-lg">
+          <img src="campus2.jpg" alt="Campus Image 2" class="rounded-lg shadow-lg">
+          <img src="campus3.jpg" alt="Campus Image 3" class="rounded-lg shadow-lg">
+      </div>
+  </section>
 
-    // Button hover effect
-    gsap.utils.toArray('button').forEach(button => {
-      button.addEventListener('mouseenter', () => {
-        gsap.to(button, { scale: 1.05, duration: 0.3, ease: "power2.out" });
-      });
-      button.addEventListener('mouseleave', () => {
-        gsap.to(button, { scale: 1, duration: 0.3, ease: "power2.out" });
-      });
-    });
-  </script>
+  <!-- Alumni Success Stories Section -->
+  <section class="alumni-success container mx-auto mb-10">
+      <h2 class="text-3xl font-semibold mb-6">Alumni Success Stories</h2>
+      <p class="text-lg">MIT boasts a distinguished alumni network, including Nobel laureates, CEOs of Fortune 500 companies, and groundbreaking scientists.</p>
+      <ul class="list-disc ml-6">
+          <li>Guglielmo Marconi - Nobel Prize in Physics for wireless telegraphy</li>
+          <li>Kofi Annan - Former Secretary-General of the United Nations</li>
+      </ul>
+  </section>
 
   <!-- Footer -->
-  <div id="Footer-placeholder"></div>
+  <div id="Footer-placeholder" class="mt-10"></div>
+
+  <!-- GSAP Animation Script -->
   <script>
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById('Footer-placeholder').innerHTML = data;
+      gsap.from(".university-details", {
+          opacity: 0,
+          y: -50,
+          duration: 1,
+          scrollTrigger: {
+              trigger: ".university-info",
+              start: "top center",
+              end: "bottom center",
+              toggleActions: "play none none none"
+          }
+      });
+
+      gsap.from(".ranking-info", {
+          opacity: 0,
+          x: 100,
+          duration: 1.5,
+          scrollTrigger: {
+              trigger: ".ranking-info",
+              start: "top center",
+              toggleActions: "play none none none"
+          }
+      });
+
+      gsap.from(".programs-offered, .campus-gallery", {
+          opacity: 0,
+          y: 100,
+          duration: 1.5,
+          scrollTrigger: {
+              trigger: ".programs-offered",
+              start: "top center",
+              toggleActions: "play none none none"
+          }
       });
   </script>
-
 </body>
 </html>
