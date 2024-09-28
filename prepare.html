@@ -75,11 +75,11 @@
       }
 
       // Load the navbar and search HTML
-      loadComponent('../Layouts/Navbar.html', 'navbar-placeholder', function () {
+      loadComponent('Navbar.html', 'navbar-placeholder', function () {
         // Callback to ensure additional scripts/functions can be called after loading the navbar
         // e.g., initialize any scripts related to the navbar here if needed
       });
-
+  loadComponent('footer.html', 'foter');
     </script>
   </div>
 
@@ -253,6 +253,7 @@
       );
     });
   </script>
+   <div id="foter"></div>
 </body>
 
 </html>
