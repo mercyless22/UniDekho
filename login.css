@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+.master{
+     justify-content: center;
+}
 
 .auth-page * {
     box-sizing: border-box;
@@ -12,7 +15,7 @@
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
-    margin: 80px 0; /* Added margin for top and bottom spacing */
+    margin: 80vh 0; /* Added margin for top and bottom spacing */
     padding: 0; /* Ensure no padding around the body */
 }
 
