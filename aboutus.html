@@ -1,59 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us Page</title>
-    <link rel="stylesheet" href="aboutus.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bg-primary { background-color: #FFC107; } /* Yellow */
+    .bg-secondary { background-color: #1E293B; } /* Gray Blue */
+    .text-primary { color: #FFC107; } /* Yellow */
+    .text-secondary { color: #1E293B; } /* Gray Blue */
+  </style>
 </head>
-<body>
-    <div id="navbar-placeholder"></div>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header Section -->
+ <div id="navbar-placeholder"></div>
 
-    <div class="about-container">
-        <h1>About Unidekho</h1>
-        <p>Unidekho is a comprehensive university listing website designed to help students find the right educational institutions for their needs. Our platform provides detailed information about various universities, including courses, campus facilities, and admission processes.</p>
+        <script>
+            // Function to load external HTML components
+            function loadComponent(url, targetElementId, callback) {
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Error loading ${url}: ${response.statusText}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(targetElementId).innerHTML = data;
+                        if (callback) callback(); // Call the callback after loading the component
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        document.getElementById(targetElementId).innerHTML = `<p>Unable to load content. Please try again later.</p>`;
+                    });
+            }
+
+            // Load the navbar and search HTML
+            loadComponent('Navbar.html', 'navbar-placeholder', function() {
+                // Callback to ensure additional scripts/functions can be called after loading the navbar
+                // e.g., initialize any scripts related to the navbar here if needed
+            });
         
-        <h2>Our Founders</h2>
-        <p>Unidekho was founded by three passionate individuals:</p>
-        <ul>
-            <li>Taher</li>
-            <li>Yash</li>
-            <li>Aditya</li>
-        </ul>
+            loadComponent('footer.html', 'foter');
+        </script>
 
-        <p>We believe that every student deserves access to quality education and the information necessary to make informed decisions about their academic future.</p>
+  <!-- About Us Section -->
+  <section id="about-us" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold text-secondary mb-6">About Us</h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          We are a dedicated team passionate about helping students make informed decisions about their university choices. Our goal is to provide comprehensive comparisons and insights to guide students in finding the best fit for their academic journey.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-wrap justify-center">
+        <div class="w-full md:w-1/3 p-4" id="mission">
+          <div class="bg-gray-50 p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            <h3 class="text-2xl font-semibold text-secondary mb-4">Our Mission</h3>
+            <p class="text-gray-700">
+              To empower students with the information they need to make the best university choices, promoting access to education and equal opportunities.
+            </p>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-4" id="vision">
+          <div class="bg-gray-50 p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            <h3 class="text-2xl font-semibold text-secondary mb-4">Our Vision</h3>
+            <p class="text-gray-700">
+              To be the leading platform for university comparisons, helping students navigate their educational paths with confidence and clarity.
+            </p>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-4" id="values">
+          <div class="bg-gray-50 p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            <h3 class="text-2xl font-semibold text-secondary mb-4">Our Values</h3>
+            <p class="text-gray-700">
+              We believe in integrity, transparency, and commitment to quality in all our services, ensuring students receive accurate and reliable information.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <script>
-        // Function to load external HTML components
-        function loadComponent(url, targetElementId, callback) {
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Error loading ${url}: ${response.statusText}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById(targetElementId).innerHTML = data;
-                    if (callback) callback(); // Call the callback after loading the component
-                })
-                .catch(error => {
-                    console.error(error);
-                    document.getElementById(targetElementId).innerHTML = `<p>Unable to load content. Please try again later.</p>`;
-                });
-        }
+  <!-- Why Choose Us Section -->
+  <section id="why-choose-us" class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center">
+        <h2 class="text-4xl font-bold mb-6">Why Choose Us?</h2>
+        <p class="text-lg max-w-3xl mx-auto mb-10">
+          We are more than just a platform. We are your partner in education, committed to providing insightful, reliable, and easy-to-understand comparisons. Here’s why students choose us:
+        </p>
+      </div>
 
-        // Load the navbar and search HTML
-        loadComponent('Navbar.html', 'navbar-placeholder', function() {
-            // Callback to ensure additional scripts/functions can be called after loading the navbar
-        });
-       
-        // Load the footer
-        loadComponent('footer.html', 'foter');
-    </script>
+      <div class="mt-12 flex flex-wrap justify-center">
+        <div class="w-full md:w-1/3 p-4" id="innovation">
+          <div class="p-6 rounded-lg shadow-lg bg-secondary transform transition duration-500 hover:scale-105">
+            <h3 class="text-2xl font-semibold text-primary mb-4">Comprehensive Comparisons</h3>
+            <p class="text-white">
+              We analyze multiple universities across various parameters, giving you a detailed understanding of your options.
+            </p>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-4" id="trust">
+          <div class="p-6 rounded-lg shadow-lg bg-secondary transform transition duration-500 hover:scale-105">
+            <h3 class="text-2xl font-semibold text-primary mb-4">Trustworthy Insights</h3>
+            <p class="text-white">
+              Our data is sourced from reputable institutions, ensuring that you receive the most accurate and current information.
+            </p>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-4" id="support">
+          <div class="p-6 rounded-lg shadow-lg bg-secondary transform transition duration-500 hover:scale-105">
+            <h3 class="text-2xl font-semibold text-primary mb-4">Dedicated Support</h3>
+            <p class="text-white">
+              Our team is available to answer your questions and guide you through your decision-making process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div id="foter"></div>
+  <!-- Our Team Section -->
+  <section id="our-team" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center">
+        <h2 class="text-4xl font-bold text-secondary mb-6">Meet Our Team</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
+          Our team consists of experienced professionals dedicated to achieving excellence. We are passionate, skilled, and ready to serve your needs.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-wrap justify-center">
+        <!-- Team Member 1 -->
+        <div class="w-full md:w-1/4 p-4" id="team-member-1">
+          <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            <img src="https://via.placeholder.com/150" alt="Team Member 1" class="rounded-full mb-4 mx-auto">
+            <h3 class="text-2xl font-semibold text-secondary mb-2">Aditya Shah</h3>
+            <p class="text-gray-700">CEO</p>
+          </div>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="w-full md:w-1/4 p-4" id="team-member-2">
+          <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            <img src="https://via.placeholder.com/150" alt="Team Member 2" class="rounded-full mb-4 mx-auto">
+            <h3 class="text-2xl font-semibold text-secondary mb-2">Yash Gorasia</h3>
+            <p class="text-gray-700">CTO</p>
+          </div>
+        </div>
+        <!-- Team Member 3 -->
+        <div class="w-full md:w-1/4 p-4" id="team-member-3">
+          <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            <img src="https://via.placeholder.com/150" alt="Team Member 3" class="rounded-full mb-4 mx-auto">
+            <h3 class="text-2xl font-semibold text-secondary mb-2">Taher Travadi</h3>
+            <p class="text-gray-700">COO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+
+
+  <!-- GSAP Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+  <script>
+    // GSAP animations
+    gsap.from("#mission, #vision, #values", {
+      scrollTrigger: "#about-us",
+      opacity: 0,
+      y: 50,
+      stagger: 0.3,
+      duration: 1.5
+    });
+
+    gsap.from("#innovation, #trust, #support", {
+      scrollTrigger: "#why-choose-us",
+      opacity: 0,
+      y: 50,
+      stagger: 0.3,
+      duration: 1.5
+    });
+
+    gsap.from("#team-member-1, #team-member-2, #team-member-3", {
+      scrollTrigger: "#our-team",
+      opacity: 0,
+      y: 50,
+      stagger: 0.3,
+      duration: 1.5
+    });
+  </script>
+     <div id="foter"></div>
 </body>
 </html>
