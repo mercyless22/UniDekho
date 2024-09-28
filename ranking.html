@@ -73,106 +73,105 @@
 <body>
   <div id="navbar-placeholder"></div>
 
-        <script>
-            // Function to load external HTML components
-            function loadComponent(url, targetElementId, callback) {
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`Error loading ${url}: ${response.statusText}`);
-                        }
-                        return response.text();
-                    })
-                    .then(data => {
-                        document.getElementById(targetElementId).innerHTML = data;
-                        if (callback) callback(); // Call the callback after loading the component
-                    })
-                    .catch(error => {
-                        console.error(error);
-                        document.getElementById(targetElementId).innerHTML = `<p>Unable to load content. Please try again later.</p>`;
-                    });
-            }
+  <div class="container mx-auto">
+      <h1 class="text-3xl font-bold mb-8 text-center">Top Universities in the USA</h1>
+      <div id="university-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+  </div>
 
-            // Load the navbar and search HTML
-            loadComponent('Navbar.html', 'navbar-placeholder', function() {
-                // Callback to ensure additional scripts/functions can be called after loading the navbar
-                // e.g., initialize any scripts related to the navbar here if needed
-            });
-          
-             loadComponent('footer.html', 'foter');
-        </script>
-    <div class="container mx-auto">
-        <h1 class="text-3xl font-bold mb-8 text-center">Top Universities in the USA</h1>
-        <div id="university-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
-    </div>
+  <div id="foter"></div> <!-- Move footer placeholder here -->
 
-    <script>
-        const apiUrl = 'http://universities.hipolabs.com/search?country=United States';
-        console.log("hello");
-        // Random photo link (you can use any online image hosting or random image generator)
-        const randomPhotoUrl = 'https://images.unsplash.com/photo-1541581134567-9ab62e3e949c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fHVuaXZlcnNpdHklMjBjb2xsZWdlfGVufDB8fHx8MTY4MjYxMzU4Nw&ixlib=rb-1.2.1&q=80&w=1080';
+  <script>
+      // Function to load external HTML components
+      function loadComponent(url, targetElementId, callback) {
+          fetch(url)
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error(`Error loading ${url}: ${response.statusText}`);
+                  }
+                  return response.text();
+              })
+              .then(data => {
+                  document.getElementById(targetElementId).innerHTML = data;
+                  if (callback) callback(); // Call the callback after loading the component
+              })
+              .catch(error => {
+                  console.error(error);
+                  document.getElementById(targetElementId).innerHTML = `<p>Unable to load content. Please try again later.</p>`;
+              });
+      }
 
-        async function fetchUniversities() {
-            const cachedData = localStorage.getItem('universities');
+      // Load the navbar and footer HTML
+      loadComponent('Navbar.html', 'navbar-placeholder', function() {
+          // Callback to ensure additional scripts/functions can be called after loading the navbar
+      });
 
-            if (cachedData) {
-                console.log("Using cached data");
-                const universities = JSON.parse(cachedData);
-                displayUniversities(universities.slice(0, 20)); // Display only the first 20 universities
-            } else {
-                try {
-                    console.log("Fetching data from API");
-                    const response = await fetch(apiUrl);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    const universities = await response.json();
+      loadComponent('footer.html', 'foter'); // Correct the ID of the footer placeholder
+      
+      const apiUrl = 'http://universities.hipolabs.com/search?country=United States';
+      console.log("hello");
+      
+      const randomPhotoUrl = 'https://images.unsplash.com/photo-1541581134567-9ab62e3e949c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fHVuaXZlcnNpdHklMjBjb2xsZWdlfGVufDB8fHx8MTY4MjYxMzU4Nw&ixlib=rb-1.2.1&q=80&w=1080';
 
-                    // Cache the results in local storage
-                    localStorage.setItem('universities', JSON.stringify(universities));
-                    displayUniversities(universities.slice(0, 20)); // Display only the first 20 universities
-                } catch (error) {
-                    console.error('Error fetching universities:', error);
-                    alert('Failed to fetch university data. Please try again later.');
-                }
-            }
-        }
+      async function fetchUniversities() {
+          const cachedData = localStorage.getItem('universities');
 
-        // Display universities in a grid
-        function displayUniversities(universities) {
-    const universityList = document.getElementById('university-list');
-    universityList.innerHTML = '';
-    const localImage = "./Images/audenica.jpg"
+          if (cachedData) {
+              console.log("Using cached data");
+              const universities = JSON.parse(cachedData);
+              displayUniversities(universities.slice(0, 20)); // Display only the first 20 universities
+          } else {
+              try {
+                  console.log("Fetching data from API");
+                  const response = await fetch(apiUrl);
+                  if (!response.ok) {
+                      throw new Error(`HTTP error! Status: ${response.status}`);
+                  }
+                  const universities = await response.json();
 
-    universities.forEach((university, index) => {
-        const universityDiv = document.createElement('div');
-        universityDiv.className = 'card';
+                  // Cache the results in local storage
+                  localStorage.setItem('universities', JSON.stringify(universities));
+                  displayUniversities(universities.slice(0, 20)); // Display only the first 20 universities
+              } catch (error) {
+                  console.error('Error fetching universities:', error);
+                  alert('Failed to fetch university data. Please try again later.');
+              }
+          }
+      }
 
-        universityDiv.innerHTML = `
-            <div class="card-inner">
-                <div class="card-front">
-                    <img src="${localImage}" alt="${university.name} Logo" class="university-image">
-                    <h2 class="card-title text-black">${index + 1}. ${university.name}</h2>
-                    <p class="card-info text-black">${university.country}</p>
-                </div>
-                <div class="card-back">
-                    <h2 class="card-title">${university.name}</h2>
-                    <p class="card-info">Ranking: Not available</p>
-                    <p class="card-info">Tuition Fee: Not available</p>
-                    <a href="#" class="text-yellow-500 hover:underline">Visit Website</a>
-                </div>
-            </div>
-        `;
+      // Display universities in a grid
+      function displayUniversities(universities) {
+          const universityList = document.getElementById('university-list');
+          universityList.innerHTML = '';
+          const localImage = "./Images/audenica.jpg"
 
-        universityList.appendChild(universityDiv);
-    });
-}
+          universities.forEach((university, index) => {
+              const universityDiv = document.createElement('div');
+              universityDiv.className = 'card';
 
-        // Fetch and display universities on page load
-        document.addEventListener('DOMContentLoaded', (event) => {
-            fetchUniversities();
-        });
-        <div id="foter"></div>
-    </script>
+              universityDiv.innerHTML = `
+                  <div class="card-inner">
+                      <div class="card-front">
+                          <img src="${localImage}" alt="${university.name} Logo" class="university-image">
+                          <h2 class="card-title text-black">${index + 1}. ${university.name}</h2>
+                          <p class="card-info text-black">${university.country}</p>
+                      </div>
+                      <div class="card-back">
+                          <h2 class="card-title">${university.name}</h2>
+                          <p class="card-info">Ranking: Not available</p>
+                          <p class="card-info">Tuition Fee: Not available</p>
+                          <a href="#" class="text-yellow-500 hover:underline">Visit Website</a>
+                      </div>
+                  </div>
+              `;
+
+              universityList.appendChild(universityDiv);
+          });
+      }
+
+      // Fetch and display universities on page load
+      document.addEventListener('DOMContentLoaded', (event) => {
+          fetchUniversities();
+      });
+  </script>
 </body>
 </html>
