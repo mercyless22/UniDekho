@@ -29,8 +29,4 @@ html, body {
     z-index: 1; /* Ensure it appears above the background image */
     border-radius: 30px; /* Optional: Rounded corners for the search box */
 }
-@media only screen and (max-width: 600px) {
-    .large-desktop-image {
-        display: none;
-    }
-}
+
