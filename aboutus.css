@@ -1,0 +1,46 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f6f5f7;
+    margin: 0;
+    padding: 0;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-container h1 {
+    color: #f0ad4e;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.about-container h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+
+.about-container p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1em;
+    margin: 15px 0;
+}
+
+.about-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-container ul li {
+    color: #f0ad4e;
+    font-weight: 500;
+    font-size: 1.1em;
+    margin: 5px 0;
+}
