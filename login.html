@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 <body>
-	<div id="navbar-placeholder"></div>
+	<div>
+        <div id="navbar-placeholder"></div>
+
+
 <script>
             // Function to load external HTML components
             function loadComponent(url, targetElementId, callback) {
@@ -38,7 +41,7 @@
        
 
         </script>
-	 <script src="login.js"></script>
+	 
 <div class="container" id="container">
     <!-- Sign Up Form -->
 	<div class="form-container sign-up-container">
@@ -104,11 +107,14 @@
         container.classList.remove("right-panel-active");
     });
 </script>
+		<script src="login.js"></script>
+  
   <script>
 
             loadComponent('footer.html', 'foter');
         </script>
-  
+		
         <div id="foter"></div>
+	</div>
 </body>
 </html>
