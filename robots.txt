@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mercyless22.github.io/UniDekho/sitemap.xml 
