@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aboutus Page</title>
+    <title>About Us Page</title>
     <link rel="stylesheet" href="aboutus.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="navbar-placeholder"></div>
+
+    <div class="about-container">
+        <h1>About Unidekho</h1>
+        <p>Unidekho is a comprehensive university listing website designed to help students find the right educational institutions for their needs. Our platform provides detailed information about various universities, including courses, campus facilities, and admission processes.</p>
+        
+        <h2>Our Founders</h2>
+        <p>Unidekho was founded by three passionate individuals:</p>
+        <ul>
+            <li>Taher</li>
+            <li>Yash</li>
+            <li>Aditya</li>
+        </ul>
+
+        <p>We believe that every student deserves access to quality education and the information necessary to make informed decisions about their academic future.</p>
+    </div>
 
     <script>
         // Function to load external HTML components
@@ -33,12 +48,12 @@
         // Load the navbar and search HTML
         loadComponent('Navbar.html', 'navbar-placeholder', function() {
             // Callback to ensure additional scripts/functions can be called after loading the navbar
-            // e.g., initialize any scripts related to the navbar here if needed
         });
        
         // Load the footer
         loadComponent('../Layouts/footer.html', 'foter');
     </script>
-   <div id="foter"></div>
+
+    <div id="foter"></div>
 </body>
 </html>
