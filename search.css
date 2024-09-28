@@ -22,7 +22,7 @@
 
 
 /* Button styling */
-.search-btn {
+.Search-btn {
     padding: 10px 20px;
     background-color: #000000;
     color: white;
@@ -33,12 +33,12 @@
     
 }
 
-.search-btn i {
+.Search-btn i {
     margin-right: 5px;
 }
 
 /* On hover */
-.search-btn:hover {
+.Search-btn:hover {
     background-color: #f0ad4e;
 }
 
