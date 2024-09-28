@@ -3,175 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Listing</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .card {
-            perspective: 1000px;
-        }
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>UniDekho - Explore Top Universities</title> <!-- Descriptive Title -->
 
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            transition: transform 0.5s;
-            transform-style: preserve-3d;
-        }
+    <meta name="description" content="Discover the best universities with UniDekho. Explore comprehensive information on higher education institutions and make informed choices."> <!-- Meta Description -->
+    <meta name="keywords" content="universities, higher education, university listings, education, UniDekho"> <!-- Keywords -->
+    <link rel="canonical" href="https://yourwebsite.com/index.html"> <!-- Canonical Link -->
 
-        .card:hover .card-inner {
-            transform: rotateY(180deg);
-        }
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="UniDekho - Explore Top Universities">
+    <meta property="og:description" content="Discover the best universities with UniDekho. Explore comprehensive information on higher education institutions and make informed choices.">
+    <meta property="og:image" content="https://yourwebsite.com/path-to-image.jpg"> <!-- Replace with your image URL -->
+    <meta property="og:url" content="https://yourwebsite.com/index.html">
+    <meta property="og:type" content="website">
 
-        .card-front,
-        .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #fff;
-        }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="Index.css">
+    <link rel="stylesheet" href="ranking.css">
+    <!-- jQuery for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="search.js"></script>
 
-        .card-front {
-            background-color: #fbbf24; /* Yellow */
-            flex-direction: column;
-            align-items: center;
-        }
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        .card-back {
-            background-color: #1f2937; /* Dark Gray */
-            transform: rotateY(180deg);
-            color: #fbbf24; /* Yellow text on dark background */
-            flex-direction: column;
-            text-align: center;
-        }
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+    <script src="aniscript.js"></script>
+    <script src="unilogocar.js"></script>
 
-        .card-info {
-            margin-bottom: 0.25rem;
-        }
-
-        .university-image {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
-  <div id="navbar-placeholder"></div>
 
-  <div class="container mx-auto">
-      <h1 class="text-3xl font-bold mb-8 text-center">Top Universities in the USA</h1>
-      <div id="university-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
-  </div>
+    <!-- Scoped Bootstrap Section -->
+    <div id="bootstrap-section">
+        <div id="navbar-placeholder"></div>
 
-  <div id="foter"></div> <!-- Move footer placeholder here -->
+        <script>
+            // Function to load external HTML components
+            function loadComponent(url, targetElementId, callback) {
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Error loading ${url}: ${response.statusText}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(targetElementId).innerHTML = data;
+                        if (callback) callback(); // Call the callback after loading the component
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        document.getElementById(targetElementId).innerHTML = `<p>Unable to load content. Please try again later.</p>`;
+                    });
+            }
 
-  <script>
-      // Function to load external HTML components
-      function loadComponent(url, targetElementId, callback) {
-          fetch(url)
-              .then(response => {
-                  if (!response.ok) {
-                      throw new Error(`Error loading ${url}: ${response.statusText}`);
-                  }
-                  return response.text();
-              })
-              .then(data => {
-                  document.getElementById(targetElementId).innerHTML = data;
-                  if (callback) callback(); // Call the callback after loading the component
-              })
-              .catch(error => {
-                  console.error(error);
-                  document.getElementById(targetElementId).innerHTML = `<p>Unable to load content. Please try again later.</p>`;
-              });
-      }
+            // Load the navbar and search HTML
+            loadComponent('Navbar.html', 'navbar-placeholder', function() {
+                // Callback to ensure additional scripts/functions can be called after loading the navbar
+                // e.g., initialize any scripts related to the navbar here if needed
+            });
+          
 
-      // Load the navbar and footer HTML
-      loadComponent('Navbar.html', 'navbar-placeholder', function() {
-          // Callback to ensure additional scripts/functions can be called after loading the navbar
-      });
+        </script>
 
-      loadComponent('footer.html', 'foter'); // Correct the ID of the footer placeholder
-      
-      const apiUrl = 'http://universities.hipolabs.com/search?country=United States';
-      console.log("hello");
-      
-      const randomPhotoUrl = 'https://images.unsplash.com/photo-1541581134567-9ab62e3e949c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fHVuaXZlcnNpdHklMjBjb2xsZWdlfGVufDB8fHx8MTY4MjYxMzU4Nw&ixlib=rb-1.2.1&q=80&w=1080';
+<div class="container mx-auto">
+    <h1 class="text-3xl font-bold mb-8 text-center">Top Universities in the USA</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- University Card 1 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Harvard+Logo" alt="Harvard Logo" class="university-image">
+                    <h2 class="card-title text-black">1. Harvard</h2>
+                    <p class="card-info text-black">Cambridge, MA</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">Harvard University</h2>
+                    <p class="card-info">| Ranking: #1</p>
+                    <p class="card-info">| Placement Ratio: 95%</p>
+                    <p class="card-info">| A prestigious institution known for its academic excellence and influential alumni.</p>
+                    <a href="https://www.harvard.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 2 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Stanford+Logo" alt="Stanford Logo" class="university-image">
+                    <h2 class="card-title text-black">2. Stanford</h2>
+                    <p class="card-info text-black">Stanford, CA</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">Stanford University</h2>
+                    <p class="card-info">| Ranking: #2</p>
+                    <p class="card-info">| Placement Ratio: 94%</p>
+                    <p class="card-info">| Known for its cutting-edge research and close ties to Silicon Valley.</p>
+                    <a href="https://www.stanford.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 3 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=MIT+Logo" alt="MIT Logo" class="university-image">
+                    <h2 class="card-title text-black">3. MIT</h2>
+                    <p class="card-info text-black">Cambridge, MA</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">Massachusetts Institute of Technology</h2>
+                    <p class="card-info">| Ranking: #3</p>
+                    <p class="card-info">| Placement Ratio: 97%</p>
+                    <p class="card-info">| Famous for its innovation in science and technology, producing leaders in these fields.</p>
+                    <a href="https://www.mit.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 4 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Yale+Logo" alt="Yale Logo" class="university-image">
+                    <h2 class="card-title text-black">4. Yale</h2>
+                    <p class="card-info text-black">New Haven, CT</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">Yale University</h2>
+                    <p class="card-info">| Ranking: #4</p>
+                    <p class="card-info">| Placement Ratio: 92%</p>
+                    <p class="card-info">| A leading university with a strong focus on liberal arts education and research.</p>
+                    <a href="https://www.yale.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 5 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Princeton+Logo" alt="Princeton Logo" class="university-image">
+                    <h2 class="card-title text-black">5. Princeton</h2>
+                    <p class="card-info text-black">Princeton, NJ</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">Princeton University</h2>
+                    <p class="card-info">| Ranking: #5</p>
+                    <p class="card-info">| Placement Ratio: 91%</p>
+                    <p class="card-info">| Recognized for its commitment to undergraduate education and research.</p>
+                    <a href="https://www.princeton.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 6 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Columbia+Logo" alt="Columbia Logo" class="university-image">
+                    <h2 class="card-title text-black">6. Columbia</h2>
+                    <p class="card-info text-black">New York, NY</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">Columbia University</h2>
+                    <p class="card-info">| Ranking: #6</p>
+                    <p class="card-info">| Placement Ratio: 90%</p>
+                    <p class="card-info">| A prestigious university located in the heart of New York City, known for its diverse programs.</p>
+                    <a href="https://www.columbia.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 7 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Chicago+Logo" alt="University of Chicago Logo" class="university-image">
+                    <h2 class="card-title text-black">7. University of Chicago</h2>
+                    <p class="card-info text-black">Chicago, IL</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">University of Chicago</h2>
+                    <p class="card-info">| Ranking: #7</p>
+                    <p class="card-info">| Placement Ratio: 88%</p>
+                    <p class="card-info">| Known for its rigorous scholarship and diverse research opportunities.</p>
+                    <a href="https://www.uchicago.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 8 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=UPenn+Logo" alt="University of Pennsylvania Logo" class="university-image">
+                    <h2 class="card-title text-black">8. UPenn</h2>
+                    <p class="card-info text-black">Philadelphia, PA</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">University of Pennsylvania</h2>
+                    <p class="card-info">| Ranking: #8</p>
+                    <p class="card-info">| Placement Ratio: 87%</p>
+                    <p class="card-info">| An Ivy League university with strong emphasis on interdisciplinary education.</p>
+                    <a href="https://www.upenn.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 9 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Caltech+Logo" alt="Caltech Logo" class="university-image">
+                    <h2 class="card-title text-black">9. Caltech</h2>
+                    <p class="card-info text-black">Pasadena, CA</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">California Institute of Technology</h2>
+                    <p class="card-info">| Ranking: #9</p>
+                    <p class="card-info">| Placement Ratio: 96%</p>
+                    <p class="card-info">| Highly regarded for its strong emphasis on science and engineering.</p>
+                    <a href="https://www.caltech.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        <!-- University Card 10 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://via.placeholder.com/300x120?text=Berkeley+Logo" alt="UC Berkeley Logo" class="university-image">
+                    <h2 class="card-title text-black">10. UC Berkeley</h2>
+                    <p class="card-info text-black">Berkeley, CA</p>
+                </div>
+                <div class="card-back">
+                    <h2 class="card-title">University of California, Berkeley</h2>
+                    <p class="card-info">| Ranking: #10</p>
+                    <p class="card-info">| Placement Ratio: 89%</p>
+                    <p class="card-info">| Known for its research prowess and diverse range of programs.</p>
+                    <a href="https://www.berkeley.edu" class="text-yellow-500 hover:underline">Visit Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-      async function fetchUniversities() {
-          const cachedData = localStorage.getItem('universities');
+        <script>
+         
 
-          if (cachedData) {
-              console.log("Using cached data");
-              const universities = JSON.parse(cachedData);
-              displayUniversities(universities.slice(0, 20)); // Display only the first 20 universities
-          } else {
-              try {
-                  console.log("Fetching data from API");
-                  const response = await fetch(apiUrl);
-                  if (!response.ok) {
-                      throw new Error(`HTTP error! Status: ${response.status}`);
-                  }
-                  const universities = await response.json();
-
-                  // Cache the results in local storage
-                  localStorage.setItem('universities', JSON.stringify(universities));
-                  displayUniversities(universities.slice(0, 20)); // Display only the first 20 universities
-              } catch (error) {
-                  console.error('Error fetching universities:', error);
-                  alert('Failed to fetch university data. Please try again later.');
-              }
-          }
-      }
-
-      // Display universities in a grid
-      function displayUniversities(universities) {
-          const universityList = document.getElementById('university-list');
-          universityList.innerHTML = '';
-          const localImage = "./Images/audenica.jpg"
-
-          universities.forEach((university, index) => {
-              const universityDiv = document.createElement('div');
-              universityDiv.className = 'card';
-
-              universityDiv.innerHTML = `
-                  <div class="card-inner">
-                      <div class="card-front">
-                          <img src="${localImage}" alt="${university.name} Logo" class="university-image">
-                          <h2 class="card-title text-black">${index + 1}. ${university.name}</h2>
-                          <p class="card-info text-black">${university.country}</p>
-                      </div>
-                      <div class="card-back">
-                          <h2 class="card-title">${university.name}</h2>
-                          <p class="card-info">Ranking: Not available</p>
-                          <p class="card-info">Tuition Fee: Not available</p>
-                          <a href="#" class="text-yellow-500 hover:underline">Visit Website</a>
-                      </div>
-                  </div>
-              `;
-
-              universityList.appendChild(universityDiv);
-          });
-      }
-
-      // Fetch and display universities on page load
-      document.addEventListener('DOMContentLoaded', (event) => {
-          fetchUniversities();
-      });
-  </script>
+            // Load the footer
+            loadComponent('footer.html', 'foter');
+        </script>
+  
+        <div id="foter"></div>
+    </div>
 </body>
 </html>
