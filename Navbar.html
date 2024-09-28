@@ -45,18 +45,22 @@
         </div>
     </nav>
 
-   <script>
-        // Custom JavaScript for mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        window.onload = function() {
             const toggleButton = document.getElementById('navbar-toggle');
             const menu = document.getElementById('navbar-menu');
 
-            toggleButton.addEventListener('click', function() {
-              console.log("hello");
-                // Toggle the "hidden" class to show/hide the menu
-                menu.classList.toggle('hidden');
-            });
-        });
+            // Check if the button is properly selected
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function() {
+                    console.log("Button clicked");  // Check if the event is firing
+                    menu.classList.toggle('hidden');
+                });
+            } else {
+                console.error("Toggle button not found");
+            }
+        };
     </script>
 </body>
 </html>
