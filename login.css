@@ -12,7 +12,7 @@
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
-    margin: 20px 0; /* Added margin for top and bottom spacing */
+    margin: 80px 0; /* Added margin for top and bottom spacing */
     padding: 0; /* Ensure no padding around the body */
 }
 
