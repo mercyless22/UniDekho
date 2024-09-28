@@ -30,24 +30,27 @@
     <a href="index.html" class="text-blue-500">Home</a> > <span class="text-gray-600">MIT</span>
   </div>
 
-  <!-- University Info Section -->
-  <section class="university-info my-8">
-    <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center">
-      <div class="university-banner w-full lg:w-1/2 mb-6 lg:mb-0">
-        <img src="mit.jpg" class="w-full justify-center rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105" alt="University Banner">
-      </div>
-      <div class="university-details mb-6 w-full lg:w-1/2 lg:pl-8">
-        <img src="mit.jpg" class="w-24 h-24 rounded-full mb-4 shadow-lg" alt="University Logo">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">MIT</h1>
-        <p class="text-gray-500 mb-4"><strong>Cambridge, LA</strong></p>
-        <div class="flex space-x-4">
-          <button class="cta-details-btn bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Get more details</button>
-          <button class="cta-shortlist-btn bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Shortlist</button>
-          <button class="cta-compare-btn bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Compare</button>
-        </div>
+  
+<!-- University Info Section -->
+<section class="university-info my-8 relative">
+  <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center relative">
+    <div class="university-banner w-full lg:w-1/2 mb-6 lg:mb-0 relative">
+      <img src="mit.jpg" class="w-full justify-center rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105" alt="University Banner">
+    </div>
+    <!-- Using absolute positioning for overlap -->
+    <div class="university-details w-full lg:w-1/2 lg:pl-8 lg:absolute lg:-top-10 lg:right-0 z-10 p-4 bg-white rounded-lg shadow-lg">
+      <img src="mit.jpg" class="w-24 h-24 rounded-full mb-4 shadow-lg" alt="University Logo">
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">MIT</h1>
+      <p class="text-gray-500 mb-4"><strong>Cambridge, LA</strong></p>
+      <div class="flex space-x-4">
+        <button class="cta-details-btn bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Get more details</button>
+        <button class="cta-shortlist-btn bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Shortlist</button>
+        <button class="cta-compare-btn bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Compare</button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Ranking Info Section -->
   <section class="ranking-info my-8">
