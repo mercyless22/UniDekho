@@ -10,6 +10,51 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- GSAP and ScrollTrigger -->
+    <style>
+          .university-info {
+    margin-bottom: 40px;
+  }
+
+  .university-banner img {
+    border-radius: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .university-banner img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .university-details {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .university-details:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  .university-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+
+  .university-details p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+  }
+
+  .cta-details-btn, .cta-shortlist-btn, .cta-compare-btn {
+    transition: all 0.3s ease;
+  }
+
+  .cta-details-btn:hover, .cta-shortlist-btn:hover, .cta-compare-btn:hover {
+    transform: scale(1.1);
+  }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
 </head>
@@ -34,12 +79,13 @@
 <!-- University Info Section -->
 <section class="university-info my-16 relative">
   <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center relative">
-    <div class="university-banner w-full lg:w-1/2 mb-6 lg:mb-0 relative z-0 overflow-hidden rounded-lg shadow-lg">
-      <img src="mit.jpg" class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105" alt="University Banner">
+    <!-- Improved Image Card -->
+    <div class="university-banner w-full lg:w-1/2 mb-6 lg:mb-0 relative z-0 overflow-hidden rounded-lg shadow-lg transition duration-500 ease-in-out transform hover:scale-105">
+      <img src="mit.jpg" class="w-full h-full object-cover rounded-lg hover:shadow-xl" alt="University Banner">
     </div>
-    
-    <!-- University Details Box Overlapping the Image -->
-    <div class="university-details w-full lg:w-1/2 lg:-ml-16 lg:relative lg:-top-12 z-10 bg-white p-8 rounded-lg shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105">
+
+    <!-- Improved University Details Box -->
+    <div class="university-details w-full lg:w-1/2 lg:-ml-16 lg:relative lg:-top-12 z-10 bg-white p-8 rounded-lg shadow-2xl transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
       <div class="flex items-center mb-4">
         <img src="mit.jpg" class="w-24 h-24 rounded-full shadow-lg mr-4" alt="University Logo">
         <div>
@@ -47,18 +93,16 @@
           <p class="text-gray-500 text-lg"><strong>Location:</strong> Cambridge, LA</p>
         </div>
       </div>
-      
+
+      <!-- Updated Buttons -->
       <div class="flex space-x-4 mt-4">
-        <button class="cta-details-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Get more details</button>
-        <button class="cta-shortlist-btn bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Shortlist</button>
-        <button class="cta-compare-btn bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Compare</button>
+        <button class="cta-details-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110">Get more details</button>
+        <button class="cta-shortlist-btn bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110">Shortlist</button>
+        <button class="cta-compare-btn bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110">Compare</button>
       </div>
     </div>
   </div>
 </section>
-
-
-
 
   <!-- Ranking Info Section -->
   <section class="ranking-info my-8">
@@ -149,12 +193,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 bg-gray-800 text-white">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2024 MIT | All rights reserved.</p>
-    </div>
-  </footer>
+  
 
     <script>
   gsap.from(".university-banner", {
